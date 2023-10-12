@@ -1,0 +1,42 @@
+<h1>Locations</h1>
+<hr>
+
+<div class="row row-cols-1 row-cols-md-4 g-4 animated fadeIn">
+    <div class="col" *ngFor="let chr of location | paginate: { itemsPerPage: 50, currentPage: p }">
+        <div class=" card  mb-3 card text-black mb-3" id="cardId" (click)="openModal(chr)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">            
+            <div class="card-body">
+                <p class="card-text"><strong>Name:</strong> {{ chr.name}}</p>
+                <p class="card-text"><strong>Type:</strong> {{ chr.type}}</p>
+            </div>                        
+        </div>
+    </div>
+</div>
+   
+<div class="pagination">
+    <pagination-controls (pageChange)="p = $event" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+
+</div>   
+
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel"><strong>{{ lName }}</strong></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">                
+                <p><strong>Type:</strong> {{lType}} <br>
+                    <strong>Dimension:</strong> {{lDimension}}</p>
+                    <p><strong>Residents:</strong></p>
+                <div *ngFor="let res of residentsArray">
+                    {{res}}
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>              
+            </div>
+          </div>
+        </div>
+    </div>
+

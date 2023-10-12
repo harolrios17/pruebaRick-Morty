@@ -1,0 +1,10 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-body{   
+    text-align: left;
+    background-color: lightblue;
+ }

@@ -1,0 +1,46 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-modal{
+    height: 40%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+ }
+
+ .modal-body{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-align: left;
+    font-size: x-large;
+    background-color: lightblue;
+ }
+ .modal-body img{
+    max-width: 40%; /* Ajusta el ancho de la imagen según tus necesidades */
+  height: auto;
+  margin-right: 20px;
+   
+ }
+
+ .modal-body p{
+    flex: 1;
+ }
+
+ .modal-title{
+    font-size: xx-large;
+ }
+
+ .search-form {
+   text-align: right;
+   margin-right: 20px;
+ }
+
+ .search{
+   text-align: right;
+ }

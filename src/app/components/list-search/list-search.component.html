@@ -1,0 +1,53 @@
+<h1>Characters found: <small>{{ id }}</small></h1>
+<hr>
+
+<div class="row animated fadeIn " *ngIf="character.length == 0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            <strong>No matches found : {{ id }}</strong>
+        </div>
+    </div>
+</div>
+
+<!-- Mostrar personajes -->
+
+<div class="row row-cols-1 row-cols-md-4 g-4 animated fadeIn">
+    <div class="col" *ngFor="let chr of character | paginate: { itemsPerPage: 50, currentPage: p }">
+        <div class=" card  mb-3 card text-black mb-3" id="cardId" (click)="openModalC(chr)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <img [src]="chr.image" class="card-img-top " id="img-style" [alt]="chr.name">
+            <div class="card-body">
+                <p class="card-text"><strong>Name:</strong> {{ chr.name}}</p>
+                <p class="card-text"><strong>Status:</strong> {{ chr.status}}</p>
+            </div>                        
+        </div>
+    </div>
+</div>
+<div class="pagination">
+    <pagination-controls (pageChange)="p = $event" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+</div>
+
+<!-- Modal personajes -->
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel"><strong>{{ cName }}</strong></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <img [src]="cImage" id="img-style">
+            <p><strong>Status: </strong>{{cStatus}} <br>
+                <strong>Species:</strong> {{cSpecies}} <br>
+                <strong>Type:</strong> {{cType}} <br>
+                <strong>Gender:</strong> {{cGender}} <br>
+                <strong>Origin:</strong> {{cOrigin}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>              
+        </div>
+      </div>
+    </div>
+  </div>
+
+
